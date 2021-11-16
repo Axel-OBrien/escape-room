@@ -30,7 +30,7 @@ const translations = [
 
 let output = document.getElementById("output")
 
-let humanText
+let inputText
 
 document.getElementById("humanToAlien").addEventListener("keyup",function () {
 
@@ -39,40 +39,49 @@ document.getElementById("humanToAlien").addEventListener("keyup",function () {
         return 0
     }
 
-    humanText = this.value.split("")
+    inputText = this.value.split("")
     
     // for each character, find the matching alien character
-    for (let i = 0; i < humanText.length; i++) {
-        humanText[i] = humanText[i].toLowerCase()
+    for (let i = 0; i < inputText.length; i++) {
+        inputText[i] = inputText[i].toLowerCase()
 
         for (let j = 0; j < translations.length; j++) {
 
-            if (humanText[i] === translations[j][0]) {
-                humanText[i] = translations[j][1]
+            if (inputText[i] === translations[j][0]) {
+                inputText[i] = translations[j][1]
                 break
-            } else if (humanText[i] === translations[j][1]) {
+            } else if (inputText[i] === translations[j][1]) {
                 break
             }
 
         }
     }
 
-    humanText = humanText.join("")
-    this.value = humanText
+    inputText = inputText.join("")
+    this.value = inputText
 
 })
 
 // function handles the interpretation of the user input
 document.getElementById("humanToAlien").addEventListener("change",function () {
-    let outputText = this.value
+    const outputText = this.value
     
-    let outputElement = document.createElement("p")
+    const outputElement = document.createElement("p")
     outputElement.innerText = `$: ${outputText}`
 
-    if (outputText === "⟒⌇☊⏃⌿⟒") {
+    switch (outputText) {
+    case "⎅⟟⍾⏁⎍":
         window.open("./escape-codes.html", "_blank")
-    } else if (outputText === "⟟⋏⎎⍜") {
+        break
+    case "⟟⋏⎎⍜":
         window.open("./info.html", "_blank")
+        break
+    case "⌇⎍⌇":
+        susAudio = new Audio("./sus.mp3")
+        susAudio.play()
+        break
+    case "☊⌰⟒⏃⍀":
+        location.reload()
     }
 
     output.appendChild(outputElement)
