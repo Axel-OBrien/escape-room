@@ -77,7 +77,7 @@ document.getElementById("humanToAlien").addEventListener("change",function () {
         window.open("./info.html", "_blank")
         break
     case "⌇⎍⌇":
-        susAudio = new Audio("./sus.mp3")
+        let susAudio = new Audio("./sus.mp3")
         susAudio.play()
         break
     case "☊⌰⟒⏃⍀":

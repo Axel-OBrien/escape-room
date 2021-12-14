@@ -68,3 +68,15 @@ h1 {
 .selectable, .selectable p{
     user-select: text !important;
 }
+
+.start {
+    background-color: var(--hacker-green);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+}
